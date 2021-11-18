@@ -4,7 +4,7 @@ import Searchbar from './components/Searchbar';
 import ImageGallery from './components/ImageGallery';
 import Button from './components/Button';
 import imagesApi from './services/imagesApi';
-import Loader from 'react-loader-spinner';
+import Spinner from './components/Loader/Loader';
 import Modal from './components/Modal';
 
 class App extends Component {
@@ -90,7 +90,7 @@ class App extends Component {
   };
 
   render() {
-    const { isLoaded, images, error, showModal, largeUrl, tag } = this.state;
+    const { isLoaded, images, showModal, largeUrl, tag } = this.state;
 
     const shouldRenderMoreButton = images.length > 0 && !isLoaded;
 
@@ -98,18 +98,9 @@ class App extends Component {
       <div className="container">
         <Searchbar onSubmit={this.onChangeQuery} />
 
-        {error && (
-          <h2>
-            Sorry something went wrong, try again later!(
-            {error.message})
-          </h2>
-        )}
-
         <ImageGallery images={images} onClick={this.onImageClick} />
 
-        {isLoaded && (
-          <Loader type="Hearts" color="#00BFFF" height={80} width={80} />
-        )}
+        {isLoaded && <Spinner />}
 
         {shouldRenderMoreButton && <Button onClick={this.fetchImages} />}
 
