@@ -1,13 +1,13 @@
-import './ImageGalleryItem.css';
+import s from './ImageGalleryItem.module.css';
 import PropTypes from 'prop-types';
 
 const ImageGalleryItem = ({ id, webformatURL, largeImageURL, tags }) => (
-  <li key={id} className="ImageGalleryItem">
+  <li key={id} className={s.imageGalleryItem}>
     <img
       src={webformatURL}
       alt={tags}
       data-url={largeImageURL}
-      className="ImageGalleryItem-image"
+      className={s.image}
     />
   </li>
 );

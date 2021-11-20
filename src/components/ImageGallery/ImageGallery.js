@@ -1,9 +1,9 @@
-import './ImageGallery.css';
+import s from './ImageGallery.module.css';
 import ImageGalleryItem from '../ImageGalleryItem';
 import PropTypes from 'prop-types';
 
 const ImageGallery = ({ images, onClick }) => (
-  <ul className="ImageGallery" onClick={onClick}>
+  <ul className={s.imageGallery} onClick={onClick}>
     {images.map(({ id, webformatURL, largeImageURL, tags }) => (
       <ImageGalleryItem
         key={id}
