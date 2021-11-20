@@ -6,6 +6,11 @@ import s from './Modal.module.css';
 const modalRoot = document.querySelector('#modal-root');
 
 export default class Modal extends Component {
+  static propTypes = {
+    onClose: PropTypes.func.isRequired,
+    children: PropTypes.node.isRequired,
+  };
+
   componentDidMount() {
     window.addEventListener('keydown', this.handleKeydown);
   }
@@ -34,8 +39,3 @@ export default class Modal extends Component {
     );
   }
 }
-
-Modal.propTypes = {
-  onClose: PropTypes.func.isRequired,
-  children: PropTypes.node.isRequired,
-};
