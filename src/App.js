@@ -90,7 +90,7 @@ class App extends Component {
   };
 
   render() {
-    const { isLoaded, images, showModal, largeUrl, tag } = this.state;
+    const { isLoaded, images, showModal } = this.state;
 
     const shouldRenderMoreButton = images.length > 0 && !isLoaded;
 
@@ -104,11 +104,7 @@ class App extends Component {
 
         {shouldRenderMoreButton && <Button onClick={this.fetchImages} />}
 
-        {showModal && (
-          <Modal onClose={this.toggleModal}>
-            <img src={largeUrl} alt={tag} />
-          </Modal>
-        )}
+        {showModal && <Modal onClose={this.toggleModal}></Modal>}
       </div>
     );
   }
